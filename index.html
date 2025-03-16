@@ -17,8 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     
     <!-- EmailJS for getting reposed-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init({
@@ -325,7 +324,7 @@
 <!-- Contact Form Section -->
 <div id="contact" class="form-section">
     <h2>Contact Us</h2>
-    <form action="" method="POST" class="contact-form" onsubmit="return validateForm()">
+    <form class="contact-form" >
         
         
         <label for="name">Your Name:</label>
@@ -353,7 +352,7 @@
         <label for="message">Any Special Requests/Message:</label>
         <textarea id="message" name="message" rows="4"></textarea>
 
-        <button type="submit">Submit</button>
+        <button type="button" onclick="return validateForm()">Submit</button>
     </form>
 </div>
 
@@ -366,18 +365,11 @@
 
 <!-- JavaScript for Smooth Scroll -->
 <script>
-    // Send email 
-    function sendEmail(name,email,countryCode,phone,eventDate,message){
-        let params = {
-            name: `${name}`,
-            email: `${email}`,
-            phone: `${countryCode}${phone}`,
-            eventDate: `${eventDate}`,
-            message: `${message}`
-        }
-        emailjs.send("service_lhwf9yl","template_prz12ek",params).then(alert(`Form submitted successfully! \nName: ${name} \nEmail: ${email} \nPhone: ${countryCode} ${phone} \nEvent Date: ${eventDate}`));
-    }
-
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("cWwCbkdm2Eki6yw0H"); // Replace with your EmailJS Public Key
+    });
+    
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -436,12 +428,12 @@
 
         // Confirmation alert before form submission
         const confirmation = confirm(
-            `Please confirm your details before submitting:\n\n +
-            Name: ${name}\n +
-            Email: ${email} +
-            Phone: ${countryCode} ${phone}\n +
-            Event Date: ${eventDate}\n\n +
-            Click "OK" to submit or "Cancel" to go back.`
+            `Please confirm your details before submitting:\n\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}` +
+            `Phone: ${countryCode} ${phone}\n` +
+            `Event Date: ${eventDate}\n\n` +
+            `Click "OK" to submit or "Cancel" to go back.`
         );
 
         if (!confirmation) {
@@ -459,7 +451,26 @@
         // Log the JSON data to the console
         console.log("Form Data:", JSON.stringify(data, null, 2));*/
 
-        sendEmail(name,email,countryCode,phone,eventDate,message);
+        // Send email using EmailJS
+        emailjs.send("service_lhwf9yl", "template_ylwq3rs", {
+            name: name,
+            email: email,
+            phone: ""+countryCode+" "+phone,
+            event_date: eventDate,
+            message: message
+        }).then(function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+            }, function (error) {
+                    console.log("FAILED...", error);
+
+                });
+    console.log("Form Data:", {
+    from_name: name,
+    from_email: email,
+    phone: phone,
+    event_date: eventDate, // Check this in the console
+    message: message
+});
     return true;
     }
 </script>
