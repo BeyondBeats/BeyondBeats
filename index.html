@@ -430,7 +430,7 @@
         const confirmation = confirm(
             `Please confirm your details before submitting:\n\n` +
             `Name: ${name}\n` +
-            `Email: ${email}` +
+            `Email: ${email}\n` +
             `Phone: ${countryCode} ${phone}\n` +
             `Event Date: ${eventDate}\n\n` +
             `Click "OK" to submit or "Cancel" to go back.`
@@ -440,16 +440,6 @@
             return false; // Stop form submission if the user cancels
         }
         
-        // Store form data in a JSON object
-        /*const data = {
-            name: name,
-            phone: countryCode + " " + phone,
-            eventDate: eventDate,
-            message: message || "No special requests"
-        };
-
-        // Log the JSON data to the console
-        console.log("Form Data:", JSON.stringify(data, null, 2));*/
 
         // Send email using EmailJS
         emailjs.send("service_lhwf9yl", "template_ylwq3rs", {
@@ -460,17 +450,19 @@
             message: message
         }).then(function (response) {
                 console.log("SUCCESS!", response.status, response.text);
+                alert("Successfully sent!");
             }, function (error) {
-                    console.log("FAILED...", error);
-
-                });
-    console.log("Form Data:", {
+                console.log("FAILED...", error);
+                alert("Failed to send. Try again later! \n", error);
+            });
+    /*console.log("Form Data:", {
     from_name: name,
     from_email: email,
     phone: phone,
     event_date: eventDate, // Check this in the console
     message: message
-});
+});*/
+    location.reload();
     return true;
     }
 </script>
