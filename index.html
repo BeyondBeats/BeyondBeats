@@ -436,12 +436,12 @@
 
         // Confirmation alert before form submission
         const confirmation = confirm(
-            Please confirm your details before submitting:\n\n +
+            `Please confirm your details before submitting:\n\n +
             Name: ${name}\n +
             Email: ${email} +
             Phone: ${countryCode} ${phone}\n +
             Event Date: ${eventDate}\n\n +
-            Click "OK" to submit or "Cancel" to go back.
+            Click "OK" to submit or "Cancel" to go back.`
         );
 
         if (!confirmation) {
