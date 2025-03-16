@@ -1,0 +1,85 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F4CCE9;
+    color: #333;
+}
+
+nav {
+    background-color: #56021F;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav .logo {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.6em;
+}
+
+.main-section {
+    background: url("https://media.giphy.com/media/3o6wrq8VYeGXuQTGZa/giphy.gif") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    background-color: #56021F;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #D17D98;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main-section h1 {
+        font-size: 3em;
+    }
+
+    .contact-form {
+        width: 90%;
+    }
+}
