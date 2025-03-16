@@ -313,23 +313,27 @@
 <!-- Contact Form Section -->
 <div id="contact" class="form-section">
     <h2>Contact Us</h2>
-    <form action="https://formsubmit.co/no1beyondbeats@gmail.com" method="POST" class="contact-form" onsubmit="return validateForm()">
-        <input type="hidden" name="_captcha" value="false">
+    <form action="" method="POST" class="contact-form" onsubmit="return validateForm()">
+        
+        
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" required>
 
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
         <label for="phone">Phone Number:</label>
         <div style="display: flex; align-items: center;">
-        <select id="country-code" name="country-code" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
-            <option value="+91">+91 (India)</option>
-            <option value="+1">+1 (USA)</option>
-            <option value="+44">+44 (UK)</option>
-            <option value="+61">+61 (Australia)</option>
-            <option value="+971">+971 (UAE)</option>
-        <!-- Add more countries if needed -->
-        </select>
-    <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" title="Please enter a 10-digit phone number" placeholder="Enter 10-digit number" style="margin-left: 10px; flex: 1;">
-</div>
+            <select id="country-code" name="country-code" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
+                <option value="+91">+91 (India)</option>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+971">+971 (UAE)</option>
+            <!-- Add more countries if needed -->
+            </select>
+        <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" title="Please enter a 10-digit phone number" placeholder="Enter 10-digit number" style="margin-left: 10px; flex: 1;">
+        </div>
 
         <label for="event-date">Event Date:</label>
         <input type="date" id="event-date" name="event-date" required>
@@ -369,19 +373,28 @@
     // Form Validation
     function validateForm() {
         const name = document.getElementById('name').value.trim();
+        const email = document.getElementById("email").value.trim();
         const phone = document.getElementById('phone').value.trim();
         const countryCode = document.getElementById('country-code').value;
         const eventDate = document.getElementById('event-date').value;
         const message = document.getElementById('message').value.trim();
 
-        // Regular expression to check 10-digit phone number
-        const phonePattern = /^\d{10}$/;
+        
 
         if (!name || !phone || !eventDate) {
             alert("Please fill all the required fields.");
             return false;
         }
 
+        // Email Validation
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // Regular expression to check 10-digit phone number
+        const phonePattern = /^\d{10}$/;
         if (!phonePattern.test(phone)) {
             alert("Please enter a valid 10-digit phone number.");
             return false;
@@ -401,6 +414,7 @@
         const confirmation = confirm(
             `Please confirm your details before submitting:\n\n` +
             `Name: ${name}\n` +
+            `Email: ${email}` +
             `Phone: ${countryCode} ${phone}\n` +
             `Event Date: ${eventDate}\n\n` +
             `Click "OK" to submit or "Cancel" to go back.`
@@ -411,7 +425,7 @@
         }
         
         // Store form data in a JSON object
-        const data = {
+        /*const data = {
             name: name,
             phone: countryCode + " " + phone,
             eventDate: eventDate,
@@ -419,9 +433,9 @@
         };
 
         // Log the JSON data to the console
-        console.log("Form Data:", JSON.stringify(data, null, 2));
+        console.log("Form Data:", JSON.stringify(data, null, 2));*/
 
-        alert(`Form submitted successfully! \nName: ${name} \nPhone: ${countryCode} ${phone} \nEvent Date: ${eventDate}`);
+        alert(`Form submitted successfully! \nName: ${name} \nEmail: ${email} \nPhone: ${countryCode} ${phone} \nEvent Date: ${eventDate}`);
     return true;
 }
 
