@@ -1,5 +1,7 @@
 ## Hi there 👋
+I wanted to host a website through github. Tried so and am trying to improve my website slowly.
 
+It works solely on html for now
 <!--
 **BeyondBeats/BeyondBeats** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
