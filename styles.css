@@ -10,7 +10,11 @@ body {
     background-color: #F4CCE9;
     color: #333;
 }
+nav .logo, .main-section h1 {
+    font-family: 'Pacifico', cursive;
+}
 
+/* Navbar Section */
 nav {
     background-color: #56021F;
     padding: 15px 20px;
@@ -30,14 +34,106 @@ nav .logo {
     font-size: 1.6em;
 }
 
+nav .cta-button a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color: #7D1C4A;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+nav .cta-button a:hover {
+    background-color: #D17D98;
+}
+
+/* Main Section (replacing header tag with div) */
 .main-section {
-    background: url("https://media.giphy.com/media/3o6wrq8VYeGXuQTGZa/giphy.gif") no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1536521903132-dfe130e89d3b?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixid=MnwzNjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&fm=jpg&ixid=MnwzNjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&fm=jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.main-section h1 {
+    font-size: 4em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.main-section p {
+    font-size: 1.3em;
+    margin-top: 20px;
+}
+
+/* Call to Action Section */
+.cta-section {
+    background-color: #7D1C4A;
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 70px; /* Adjust for navbar */
+}
+
+.cta-section h2 {
+    font-size: 2.5em;
+    color: white;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    color: white;
+    margin: 20px 0;
+}
+
+/* About Me Section */
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #D17D98;
+    padding: 60px 20px;
+}
+
+.about-me img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.about-me h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.about-me p {
+    font-size: 1.1em;
+    color: white;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Contact Form Section */
+.form-section {
+    background-color: #F4CCE9;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 70px; /* Adjust for navbar */
+}
+
+.form-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .contact-form {
@@ -67,10 +163,51 @@ nav .logo {
     border-radius: 4px;
     font-size: 1.1em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
     background-color: #D17D98;
+}
+
+/* Footer Section */
+footer {
+    background-color: #56021F;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.main-section {
+    background: url("https://media.giphy.com/media/3o6wrq8VYeGXuQTGZa/giphy.gif?cid=ecf05e472mzxmhga56xyvb66m0zjoysrydwjbyhysksopbc0&ep=v1_gifs_related&rid=giphy.gif&ct=g") no-repeat center center/cover;
+}
+.about-me img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;    
+}
+
+@media (max-width: 768px) {
+    .about-me img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 /* Responsive Design */
@@ -79,7 +216,45 @@ nav .logo {
         font-size: 3em;
     }
 
-    .contact-form {
-        width: 90%;
+    .main-section p {
+        font-size: 1.1em;
+    }
+
+    .cta-section h2 {
+        font-size: 2em;
+    }
+
+    .form-section h2 {
+        font-size: 2em;
+    }
+
+    .about-me h3 {
+        font-size: 1.8em;
+    }
+
+    .about-me p {
+        font-size: 1em;
+    }
+
+    /* Navbar for mobile view */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    nav .logo {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    nav .cta-button {
+        margin-top: 10px;
+    }
+
+    nav .cta-button a {
+        font-size: 1.1em;
     }
 }
